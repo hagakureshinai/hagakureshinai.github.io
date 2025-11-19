@@ -1,0 +1,9 @@
+body {
+    font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; /* 明朝体にする */
+    line-height: 1.8; /* 行間を広めに */
+    color: #333; /* 文字色を真っ黒ではなく濃いグレーに（目に優しい） */
+    max-width: 800px; /* 横幅が広がりすぎないように制限 */
+    margin: 0 auto; /* 画面の中央に寄せる */
+    padding: 20px;
+    background-color: #f9f9f9; /* 背景を少し生成り色に */
+}

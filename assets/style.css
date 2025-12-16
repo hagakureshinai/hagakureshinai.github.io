@@ -1,9 +1,99 @@
+/* 日本語の美しい明朝体Webフォントを読み込み（Google Fonts） */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap');
+
 body {
-    font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; /* 明朝体にする */
-    line-height: 1.8; /* 行間を広めに */
-    color: #333; /* 文字色を真っ黒ではなく濃いグレーに（目に優しい） */
-    max-width: 800px; /* 横幅が広がりすぎないように制限 */
-    margin: 0 auto; /* 画面の中央に寄せる */
-    padding: 20px;
-    background-color: #f9f9f9; /* 背景を少し生成り色に */
+    /* フォント指定：Shippori Minchoを優先、なければ端末の明朝体 */
+    font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
+    line-height: 2.0; /* ゆったりとした行間 */
+    color: #1A202C;   /* 真っ黒ではなく、深い群青がかった黒 */
+    background-color: #F0F4F8; /* 青みのある淡いグレー（雪のような白） */
+    
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px; /* 上下の余白を広げて「余韻」を作る */
+}
+
+/* リンクの基本設定 */
+a {
+    color: #2C5282; /* ネイビー */
+    text-decoration: none; /* 下線を消す */
+    transition: opacity 0.3s; /* ホバー時にふわっと変化させる */
+}
+
+a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* ヘッダー周り */
+header {
+    margin-bottom: 60px; /* 本文との距離を離す */
+    text-align: center;  /* 中央寄せ */
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.1em; /* 文字間を少し空けて上品に */
+    color: #2A4365; /* 少し明るめのネイビー */
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 14px;
+    color: #718096; /* 薄めの色で控えめに */
+}
+
+/* セクション（見出しごとの塊） */
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 18px;
+    border-bottom: 1px solid #CBD5E0; /* 薄い青グレーの線 */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #2D3748;
+    font-weight: normal; /* 太字にしすぎない */
+    letter-spacing: 0.05em;
+}
+
+/* リスト（作品一覧）のUI改善 */
+ul {
+    list-style: none; /* ・を消す */
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 24px; /* 作品ごとの間隔 */
+}
+
+/* 作品リンクのカード化（クリックしやすくする） */
+li a {
+    display: block; /* リンクを行全体に広げる */
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* あらすじの文字 */
+li p {
+    margin: 0;
+    font-size: 14px;
+    color: #4A5568;
+    line-height: 1.6;
+}
+
+/* フッター */
+footer {
+    margin-top: 80px;
+    text-align: center;
+    color: #A0AEC0;
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid #E2E8F0;
+    margin-bottom: 20px;
 }

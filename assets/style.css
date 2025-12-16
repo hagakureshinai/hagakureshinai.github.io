@@ -1,99 +1,145 @@
-/* 日本語の美しい明朝体Webフォントを読み込み（Google Fonts） */
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap');
+/* 明朝体（Shippori Mincho）とゴシック体（Zen Kaku Gothic New）を読み込み */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
 
+/* 全体のベース設定（背景色：冬の朝の空気） */
 body {
-    /* フォント指定：Shippori Minchoを優先、なければ端末の明朝体 */
-    font-family: "Shippori Mincho", "Yu Mincho", "Hiragino Mincho ProN", serif;
-    line-height: 2.0; /* ゆったりとした行間 */
-    color: #1A202C;   /* 真っ黒ではなく、深い群青がかった黒 */
-    background-color: #F0F4F8; /* 青みのある淡いグレー（雪のような白） */
+    background-color: #F0F4F8; /* 淡いブルーグレー */
+    color: #2D3748;
+    font-family: "Zen Kaku Gothic New", "Helvetica Neue", Arial, sans-serif; /* 基本は読みやすいゴシック */
+    line-height: 1.8;
+    margin: 0;
+    padding: 20px;
     
-    max-width: 800px;
+    /* 画面全体の中央寄せ */
+    display: flex;
+    justify-content: center;
+}
+
+/* ページ全体を包む「紙」のようなエリア（★ここがポイント） */
+/* HTMLに <div class="container">...</div> を追加しなくても、
+   body > * をラップするイメージで疑似的にmainやheaderを囲う代わりに、
+   今回はbodyに直接max-width等を指定せず、mainタグ等で幅を制御します。
+   （※既存HTMLを活かすため、body直下の要素の見た目を調整します） */
+
+/* コンテンツ全体を中央揃えにするためのラッパー的設定 */
+/* 既存のHTML構造のまま、見た目をリッチにするため、bodyの設定を少し変更しました */
+body {
+    display: block; /* フレックス解除 */
+    max-width: 840px;
     margin: 0 auto;
-    padding: 40px 20px; /* 上下の余白を広げて「余韻」を作る */
+    padding: 40px 20px;
 }
 
-/* リンクの基本設定 */
-a {
-    color: #2C5282; /* ネイビー */
-    text-decoration: none; /* 下線を消す */
-    transition: opacity 0.3s; /* ホバー時にふわっと変化させる */
-}
-
-a:hover {
-    opacity: 0.7;
-    text-decoration: underline;
-}
-
-/* ヘッダー周り */
+/* ヘッダー */
 header {
-    margin-bottom: 60px; /* 本文との距離を離す */
-    text-align: center;  /* 中央寄せ */
+    text-align: center;
+    margin-bottom: 60px;
+    /* ふわっと表示アニメーション */
+    animation: fadeIn 1.5s ease-out;
 }
 
 header h1 {
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: 0.1em; /* 文字間を少し空けて上品に */
-    color: #2A4365; /* 少し明るめのネイビー */
-    margin-bottom: 10px;
+    font-family: "Shippori Mincho", serif; /* タイトルは明朝体で情緒を */
+    font-size: 28px;
+    letter-spacing: 0.15em;
+    color: #1A202C; /* 深い紺黒 */
+    margin-bottom: 12px;
 }
 
 header p {
-    font-size: 14px;
-    color: #718096; /* 薄めの色で控えめに */
-}
-
-/* セクション（見出しごとの塊） */
-section {
-    margin-bottom: 50px;
-}
-
-h2 {
-    font-size: 18px;
-    border-bottom: 1px solid #CBD5E0; /* 薄い青グレーの線 */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: #2D3748;
-    font-weight: normal; /* 太字にしすぎない */
+    font-size: 13px;
+    color: #718096;
     letter-spacing: 0.05em;
 }
 
-/* リスト（作品一覧）のUI改善 */
+/* メインコンテンツ部分 */
+main {
+    background-color: #ffffff; /* 真っ白な「紙」 */
+    padding: 40px; /* 紙の内側の余白 */
+    border-radius: 4px; /* 角を少しだけ丸く */
+    box-shadow: 0 4px 20px rgba(44, 82, 130, 0.08); /* ほんのり青い影を落とす */
+    
+    /* ふわっと表示（ヘッダーより少し遅らせる） */
+    animation: fadeIn 1.5s ease-out 0.3s backwards;
+}
+
+/* 見出し */
+h2 {
+    font-family: "Shippori Mincho", serif; /* 見出しも明朝体 */
+    font-size: 20px;
+    color: #2C5282; /* ネイビー */
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 12px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    letter-spacing: 0.08em;
+}
+
+/* リストデザイン（★味付けポイント） */
 ul {
-    list-style: none; /* ・を消す */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 li {
-    margin-bottom: 24px; /* 作品ごとの間隔 */
+    margin-bottom: 30px;
 }
 
-/* 作品リンクのカード化（クリックしやすくする） */
 li a {
-    display: block; /* リンクを行全体に広げる */
-    font-size: 18px;
-    margin-bottom: 5px;
+    display: block;
+    font-family: "Shippori Mincho", serif; /* 作品名は明朝体 */
+    font-size: 19px;
+    color: #2D3748;
+    text-decoration: none;
+    
+    /* 左側のアクセントライン */
+    border-left: 3px solid transparent; /* 最初は透明 */
+    padding-left: 12px;
+    transition: all 0.3s ease;
 }
 
-/* あらすじの文字 */
+/* ホバー時の動き（★静かなインタラクション） */
+li a:hover {
+    border-left-color: #2C5282; /* 線がネイビーに色づく */
+    color: #2C5282;
+    padding-left: 18px; /* 少し右に動く */
+    opacity: 1; /* 透明度は変えず、色と動きで表現 */
+}
+
 li p {
-    margin: 0;
-    font-size: 14px;
-    color: #4A5568;
+    /* あらすじはゴシック体で読みやすく */
+    font-family: "Zen Kaku Gothic New", sans-serif; 
+    font-size: 13px;
+    color: #718096;
+    margin-top: 6px;
+    margin-left: 15px; /* ラインの分だけ少し下げる */
     line-height: 1.6;
 }
 
 /* フッター */
 footer {
-    margin-top: 80px;
     text-align: center;
+    margin-top: 50px;
     color: #A0AEC0;
+    font-size: 12px;
+    animation: fadeIn 1.5s ease-out 0.6s backwards;
 }
 
 footer hr {
-    border: none;
-    border-top: 1px solid #E2E8F0;
-    margin-bottom: 20px;
+    display: none; /* 線はデザインの邪魔になるので消す */
+}
+
+/* フェードインのアニメーション定義 */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* スマホ対応（レスポンシブ） */
+@media (max-width: 600px) {
+    body { padding: 15px; }
+    main { padding: 25px 20px; } /* スマホでは余白を少し詰める */
+    header h1 { font-size: 22px; }
+    li a { font-size: 17px; }
 }

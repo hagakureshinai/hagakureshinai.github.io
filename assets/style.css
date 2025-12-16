@@ -100,7 +100,8 @@ li a {
 }
 
 /* ホバー時の動き（★静かなインタラクション） */
-li a:hover {
+li a:hover,
+li a:active {
     border-left-color: #2C5282; /* 線がネイビーに色づく */
     color: #2C5282;
     padding-left: 18px; /* 少し右に動く */

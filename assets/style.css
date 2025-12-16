@@ -144,3 +144,112 @@ footer hr {
     header h1 { font-size: 22px; }
     li a { font-size: 17px; }
 }
+
+/* 小説ページ用の小さなヘッダー */
+.mini-header {
+    font-size: 18px; /* トップページ(24px)より小さく */
+    margin-bottom: 0;
+}
+
+.mini-header a {
+    color: #718096; /* 少し薄い色にして、本文より目立たせない */
+    text-decoration: none;
+}
+
+/* パンくずリスト */
+.breadcrumb {
+    font-size: 12px;
+    color: #A0AEC0;
+    margin-bottom: 20px;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+}
+
+.breadcrumb a {
+    color: #718096;
+    text-decoration: underline; /* リンクだと分かるように下線を引く */
+}
+
+/* 「>」などの記号の隙間 */
+.breadcrumb span {
+    color: #2D3748; /* 現在地だけ少し濃く */
+}
+
+/* 小説ページ用の前後ナビ */
+.novel-nav {
+    display: flex; /* 横並びにする */
+    justify-content: space-between; /* 均等に配置（左・中・右） */
+    margin: 30px 0;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 14px;
+}
+
+.novel-nav a {
+    color: #2C5282; /* テーマカラーのネイビー */
+    padding: 10px 0; /* 指で押しやすいように余白を作る */
+}
+
+/* スマホで押し間違えないように、真ん中の「目次」との距離を離す工夫 */
+.novel-nav a:nth-child(2) {
+    color: #718096; /* 目次だけ色を薄くしてメリハリをつける */
+}
+
+/* --- 切り替えボタンのデザイン --- */
+.setting-btn {
+    text-align: right; /* 右寄せ */
+    margin-bottom: 10px;
+}
+
+.setting-btn button {
+    background: transparent;
+    border: 1px solid #2C5282;
+    color: #2C5282;
+    padding: 5px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.setting-btn button:hover {
+    background: #2C5282;
+    color: #fff;
+}
+
+/* --- 小説本文の基本設定 --- */
+.novel-body {
+    font-family: "Shippori Mincho", serif;
+    font-size: 16px;
+    line-height: 2.0;
+    text-align: justify; /* 両端揃え */
+}
+
+.novel-body p {
+    margin-bottom: 1.5em; /* 段落ごとの空き */
+}
+
+/* --- ★縦書きモード (.vertical) の設定 --- */
+.novel-body.vertical {
+    writing-mode: vertical-rl; /* 縦書きにする魔法 */
+    
+    /* 縦書きの時は、高さ制限をつけて横スクロールさせる */
+    height: 70vh; /* 画面の高さの70%くらいを使う */
+    overflow-x: auto; /* 横にはみ出したらスクロール */
+    overflow-y: hidden; /* 縦スクロールは禁止 */
+    
+    /* 見た目の調整 */
+    background-color: #fff;
+    padding: 20px;
+    margin: 0 auto;
+    
+    /* 文字間などの微調整 */
+    letter-spacing: 0.1em;
+}
+
+/* スマホでの縦書き調整 */
+@media (max-width: 600px) {
+    .novel-body.vertical {
+        height: 65vh; /* スマホは少し狭めに */
+        font-size: 15px; /* 文字サイズ調整 */
+    }
+}
